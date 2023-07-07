@@ -7,6 +7,12 @@ const initialState = {
 const storeSlice = createSlice({
   name: "store",
   initialState,
+  reducers: {
+    hello(state) {
+      state.store = [...state.store, "hello"];
+    },
+  },
 });
 
 export default storeSlice.reducer;
+export const { hello } = storeSlice.actions;

@@ -1,7 +1,22 @@
-import { useSelector } from "react-redux";
+import { hello } from "@/redux/features/storeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
-  const state = useSelector((s) => s);
+  const state = useSelector((state) => state.store);
+  const dispatch = useDispatch();
+
   console.log(state);
-  return <main></main>;
+  return (
+    <main>
+      <div>
+        <button
+          onClick={() => {
+            dispatch(hello());
+          }}
+        >
+          hello
+        </button>
+      </div>
+    </main>
+  );
 }
